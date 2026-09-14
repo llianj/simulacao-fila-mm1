@@ -1,20 +1,29 @@
-# simulacao-fila-mm1
-Simulação de fila M/M/1 em Python com SimPy
+# Simulação de Fila M/M/1
 
-Nome da Tarefa:
-Atividade de simulação
-Descrição:
-Replicar a simulação da versão 2 (a que possui tempos sorteados) trocando a semente pelo seu número de matrícula. 
+Simulação de uma fila de atendimento (chegadas e serviços aleatórios) usando a biblioteca `simpy`.
 
+## O que o código faz
 
+## Parâmetros
 
-Entregue um código python que contenha os seguintes itens:
+| Parâmetro | Significado |
+|---|---|
+| `lambdaa` (λ) | taxa de chegada de clientes |
+| `mu` (µ) | taxa de atendimento por servidor |
+| `servidores` | número de atendentes |
+| `n_clientes` | número de clientes simulados |
+| `semente` | semente do gerador aleatório |
 
+## Como rodar
 
+```bash
+python simulador.py
+```
 
-1 Parâmetros no topo, com nome: λ, µ, atendentes, nº de clientes e a MATRICULA como semente.
-2 Rodada base com λ= 0,8: o log dos 6 primeiros clientes e as métricas com as contas à mostra (ρ, espera, ocupado, total, U, la máxima).
-3 Teste 1: rodar com λ= 0,5, 0,8 e 0,95. A espera piorou? O U cou perto do ρ?
-4 Teste 2: λ= 1,2 com 1 e com 2 atendentes. O segundo atendente resolveu?
-5 Teste 3: rodar duas vezes com a mesma semente. Deu igual? 
- 
+O programa executa em 4 etapas, pausando com Enter entre elas:
+
+1. **Rodada base** (λ=0,8): mostra o log dos 6 primeiros clientes e as métricas.
+2. **Teste 1**: roda com λ = 0,5, 0,8 e 0,95, para ver o efeito da utilização na espera.
+3. **Teste 2**: roda com λ=1,2 usando 1 e depois 2 atendentes, para ver se um atendente extra resolve a instabilidade.
+4. **Teste 3**: roda duas vezes com a mesma semente, para confirmar que o resultado é reprodutível.
+
